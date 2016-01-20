@@ -41,8 +41,17 @@ public class StudyroomManager {
 		SqlSession session = sqlFactory.openSession();//세션별로 sql 작업할수 있도록 열어놓는것
 		StudyroomDto dto = new StudyroomDto();
 		System.out.println("Manager까지 가져온 날짜는 "+date);
-		list = session.selectList("searchReservation", date);
-		System.out.println("2매니져에서 dto는"+list.get(0));
+		dto.setReservation_date(date);
+		System.out.println("Manager까지 가져온 날짜는  dto값"+dto.getReservation_date());
+		try{
+			list = session.selectList("searchReservation", date);
+			if(list == null){
+				System.out.println("NULLLLLLLLL!!!!");
+			}
+		}catch(Exception err){
+			System.out.println("searchReservation"+err);
+			System.out.println("2매니져에서 dto는"+list.get(0));
+		}
 		return list;
 	}
 	public static void resWrite(StudyroomDto studyroomdto){
@@ -58,10 +67,11 @@ public class StudyroomManager {
 		session.insert("resWrite", studyroomdto);//stutyroomMapper.xml에 id가 resWrite인 메서드에 studyroomdto를 파라미터 값으로 넘겨준다.
 		session.commit();//insert, update, delete는  commit()을 해줘야 완성이 된다.
 	}
-	public static StudyroomDto findByRes_num(int reservation_num){
+	public static List findByRes_num(String member_email){
 		SqlSession session = sqlFactory.openSession();
-		StudyroomDto studyroomdto = session.selectOne("findByRes_num", reservation_num);
-		return studyroomdto;
+		List list = null;
+		list = session.selectList("findByRes_num", member_email);
+		return list;
 	}
 	public static StudyroomDto findBySameResurvation(StudyroomDto studyroomdto){
 		System.out.println("<1.findBySameResurvation>");
@@ -79,6 +89,7 @@ public class StudyroomManager {
 	public static void resDelete(int reservation_num){
 		SqlSession session = sqlFactory.openSession();
 		session.delete("resDelete", reservation_num);
+		System.out.println("스터디 삭제 매니저까지오는 넘버값!!!"+reservation_num);
 		session.commit();
 	}
 	

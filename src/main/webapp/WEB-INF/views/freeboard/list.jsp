@@ -222,6 +222,11 @@ function check(){
 </form>
 
 </center>	
-
+</div>
+</div>
+</div>
+</div>
+</div>
+</body>
 
 <%@include file="/footer.jsp"%>        

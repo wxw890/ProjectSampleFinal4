@@ -341,6 +341,7 @@ li.bullet {
 }
 
 .footer {
+   border-top-style:solid; border-color:orange;
    background:#f9f7f7;
    padding-top: 30px;
 }
@@ -655,4 +656,4 @@ table.type09 td {
 
 /* 異붽� */
 .loginstyles{ margin-right: 15px}
-.orange_box{width:1040px;margin:0 auto;border:5px solid #FF6d11;}
+.orange_box{width:1040px;margin:0 auto;border:5px solid #FF6d11;margin-bottom: 30px; margin-top:30px;}

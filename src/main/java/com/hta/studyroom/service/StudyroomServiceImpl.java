@@ -44,9 +44,10 @@ public class StudyroomServiceImpl implements StudyroomService {
 	}
 	
 	//예약 내용 읽기
-	public StudyroomDto findByRes_num(int reservation_num) throws SQLException {
+	public List findByRes_num(String member_email) throws SQLException {
 			
-		return StudyroomManager.findByRes_num(reservation_num);	
+		List list = StudyroomManager.findByRes_num(member_email);
+		return list;
 	}
 		
 	//예약 삭제 기능 - 차후 예약 취소쪽으로 생각
@@ -58,7 +59,7 @@ public class StudyroomServiceImpl implements StudyroomService {
 	//회원의 예약 찾기
 	public List Searchreservation(String date){
 		List list = StudyroomManager.searchReservation(date);
-		System.out.println("서비스에서는 나오냐??"+list.get(0));
+		
 		return list;
 	}
 

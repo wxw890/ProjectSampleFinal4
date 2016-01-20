@@ -35,12 +35,12 @@ public class SearchReservationController {
 		System.out.println("일!!!!!!!!"+firstday + " and " +secondday + " = " + sumday);
 		System.out.println("년!!!!!!!!"+year);
 		
-		List list;
+		List list=null;
 		
 		//System.out.println("session에 저장한 email가져옵니까?"+member_email);
-	
+		System.out.println("1.서치컨트롤 list 실행!!!");
 			list=studyroomService.Searchreservation(date);
-			System.out.println("서치컨트롤 list 실행!!!");
+			System.out.println("2.서치컨트롤 list 실행!!!");
 			mav.addObject("list5", list);
 			
 		

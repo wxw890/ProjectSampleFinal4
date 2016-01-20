@@ -10,7 +10,7 @@ public interface StudyroomService {
 	/*public List getRoomResList() throws SQLException;*/
 	
 	//특정 예약 목록 가져오기(읽기 기능)
-	public StudyroomDto findByRes_num(int reservation_num) throws SQLException;
+	public List findByRes_num(String member_email) throws SQLException;
 	
 	//현재 예약 확인
 	public StudyroomDto findBySameResurvation(StudyroomDto studyroomdto) throws SQLException;

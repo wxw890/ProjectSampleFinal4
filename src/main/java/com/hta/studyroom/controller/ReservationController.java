@@ -106,31 +106,48 @@ public class ReservationController {
 					studyroomdto.setMember_name(memberName);
 						
 				StudyroomDto dto = studyroomService.findBySameResurvation(studyroomdto);//같은 날짜에 예약있는지 찾는다.
-				if(nowyear.equals(year) && nowmonth<month){
-						//if(nowday<=sumday){
-							System.out.println("1. write 시~~~~~~~~작!!!");
-							//step1.jsp에서 전달받은 데이터를 스터디룸 좌석 예약 DB에 입력
-							
-						//}
-						if(dto == null){//dto가 널이 아니라면 같은 날짜에 예약되어있는게 있다는 뜻
-							studyroomService.resWrite(studyroomdto);
-						}
-						else{
-							System.out.println("1. mav2 시~~~~~~~~작!!!");
-							ModelAndView mav2 = new ModelAndView("/study_room/reservation/step1Error");
-							mav2.addObject("list", list);//List 형식으로 보낼때
-							//mav2.addAllObjects(map); //Map 형식으로 보낼때
-							//mav2.addObject("month", month);//선택한 월
-							//mav2.addObject("year", year);//선택한 년도
-							//mav2.addObject("day", sumday);//선택한 정확날짜
-							return mav2;
-							
-						}
+				
+				
+				if(nowyear.equals(year) && nowmonth<month){//같은 년도에 현재 월보다 클때 무조건 입력을 한다.
+							//if(nowday<=sumday){
+								//System.out.println("1. write 시~~~~~~~~작!!!");
+								//step1.jsp에서 전달받은 데이터를 스터디룸 좌석 예약 DB에 입력
+								
+							//}
+							if(dto == null){//dto가 널이 아니라면 같은 날짜에 예약되어있는게 있다는 뜻
+								System.out.println("1. write 시~~~~~~~~작!!!");
+								studyroomService.resWrite(studyroomdto);
+							}
+							else{
+								System.out.println("1-1. mav2 시~~~~~~~~작!!!");
+								ModelAndView mav2 = new ModelAndView("/study_room/reservation/step1Error");
+								mav2.addObject("list", list);//List 형식으로 보낼때
+								//mav2.addAllObjects(map); //Map 형식으로 보낼때
+								//mav2.addObject("month", month);//선택한 월
+								//mav2.addObject("year", year);//선택한 년도
+								//mav2.addObject("day", sumday);//선택한 정확날짜
+								return mav2;
+								
+							}
 				}
-				else if(nowyear.equals(year) && nowmonth==month && nowday<=sumday){
-					System.out.println("2. write 시~~~~~~~~작!!!");
-					//step1.jsp에서 전달받은 데이터를 스터디룸 좌석 예약 DB에 입력
-					studyroomService.resWrite(studyroomdto);
+				else if(nowyear.equals(year) && nowmonth==month && nowday<=sumday){//같은 년도에 현재월가 같으며 현재 날짜보다 크거나 같을때 입력한다.
+							
+							if(dto == null){//dto가 널이 아니라면 같은 날짜에 예약되어있는게 있다는 뜻
+							System.out.println("2. write 시~~~~~~~~작!!!");
+							//step1.jsp에서 전달받은 데이터를 스터디룸 좌석 예약 DB에 입력
+							studyroomService.resWrite(studyroomdto);
+							}
+							else{
+								System.out.println("2-1. mav2 시~~~~~~~~작!!!");
+								ModelAndView mav2 = new ModelAndView("/study_room/reservation/step1Error");
+								mav2.addObject("list", list);//List 형식으로 보낼때
+								//mav2.addAllObjects(map); //Map 형식으로 보낼때
+								//mav2.addObject("month", month);//선택한 월
+								//mav2.addObject("year", year);//선택한 년도
+								//mav2.addObject("day", sumday);//선택한 정확날짜
+								return mav2;
+								
+							}
 				}
 				else{
 					System.out.println("2. mav2 시~~~~~~~~작!!!");
