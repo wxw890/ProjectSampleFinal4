@@ -1,0 +1,192 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	isELIgnored="false"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ page import="java.util.Date" %>
+
+<%@include file="/header.jsp"%>	
+	
+	<c:set var="map" value="<%=new java.util.HashMap()%>" />
+	
+	<!-- 위쪽은 header.css 대신 사용하는 부분. 탬플릿에서 가져왔다. -->
+	
+	
+	<script>
+	
+	var NullValueError = ${NullValueError=='NullValue'}
+	if(NullValueError == "NullValue"){
+	alert("날짜좀 입력해주세요!");
+	}
+	</script>
+	
+
+	<div class="container" align="center" id="resview"
+		style="margin-top: 50px">
+		<img src="images/hta_res.jpg" alt="" />
+		<!-- 
+		<h1>${map.year}</h1><h1>${map.get["month"]}</h1><h1>${map.get['day']}</h1>
+		<c:forEach var="map" items="${map}" varStatus="current">
+			<tr>
+			<td>${map.value}</td>
+			<td>${map.month}</td>
+			<td>${map.day}</td>
+			</tr>
+		</c:forEach> -->
+<c:set var="list" value="${list}"></c:set>
+<c:forEach var="i" begin="0" end="2" step="1">
+	<tr>
+		<td>${list.get(i)}</td>
+	
+	</tr>
+</c:forEach>
+	<tr>
+		<td>가져온 날짜들 ${list.get(0)}, ${list.get(1)}, ${list.get(2)}</td>
+	
+	</tr>
+	
+	
+		
+		<form action="reservation2.study" method="post"> 
+			
+			<!-- 사용자 계정 정보 전달을 위해 히든값으로 이메일(계정)전달 -->
+	
+
+			<p class="calendarP">
+				<label><h3>예약하실 날짜를 선택해 주세요</h3></label> 
+				<input type="date"	name="reservation_date" id="day" class="calendar" />
+					
+			</p>
+
+			<p>
+			<fieldset>
+				<label for="files"><h3>사용 시간 설정</h3></label> <select
+					name="reservation_time" id="files">
+					<optgroup label="morning">
+						<option value="08:00~10:00">08:00~10:00</option>
+						<option value="10:00~12:00">10:00~12:00</option>
+					</optgroup>
+					<optgroup label="afternoon">
+						<option value="12:00~14:00">12:00~14:00</option>
+						<option value="14:00~16:00">14:00~16:00</option>
+						<option value="16:00~18:00">16:00~18:00</option>
+						<option value="18:00~20:00">18:00~20:00</option>
+						<option value="20:00~22:00">20:00~22:00</option>
+					</optgroup>
+					<optgroup label="deadline"></optgroup>
+				</select>
+			</fieldset>
+			</p>
+
+			<div class="tableBox">
+				<div class="box">
+					<strong>1번 테이블</strong>
+					<div class="info">좌석수 : 6인석</div>
+					<div class="marking">예약상태 : 예약중이라면 빨간색으로 예약중이라고 표시</div>
+					<br /> <input type="radio" name="table_num" value="1" />
+				</div>
+				<div class="box">
+					<strong>2번 테이블</strong>
+					<div class="info">좌석수 : 6인석</div>
+					<div class="marking">예약상태 : 예약중이라면 빨간색으로 예약중이라고 표시</div>
+					<br /> <input type="radio" name="table_num" value="2" />
+				</div>
+				<div class="box">
+					<strong>3번 테이블</strong>
+					<div class="info">좌석수 : 6인석</div>
+					<div class="marking">예약상태 : 예약중이라면 빨간색으로 예약중이라고 표시</div>
+					<br /> <input type="radio" name="table_num" value="3" />
+				</div>
+				<div class="box">
+					<strong>4번 테이블</strong>
+					<div class="info">좌석수 : 6인석</div>
+					<div class="marking">예약상태 : 예약중이라면 빨간색으로 예약중이라고 표시</div>
+					<br /> <input type="radio" name="table_num" value="4" />
+				</div>
+				<div class="box">
+					<strong>5번 테이블</strong>
+					<div class="info">좌석수 : 8인석</div>
+					<div class="marking">예약상태 : 예약중이라면 빨간색으로 예약중이라고 표시</div>
+					<br /> <input type="radio" name="table_num" value="5" />
+				</div>
+				<div class="box">
+					<strong>6번 테이블</strong>
+					<div class="info">좌석수 : 8인석</div>
+					<div class="marking">예약상태 : 예약중이라면 빨간색으로 예약중이라고 표시</div>
+					<br /> <input type="radio" name="table_num" value="6" />
+				</div>
+				<div class="box">
+					<strong>7번 테이블</strong>
+					<div class="info">좌석수 : 8인석</div>
+					<div class="marking">예약상태 : 예약중이라면 빨간색으로 예약중이라고 표시</div>
+					<br /> <input type="radio" name="table_num" value="7" />
+				</div>
+				<div class="box">
+					<strong>8번 테이블</strong>
+					<div class="info">좌석수 : 8인석</div>
+					<div class="marking">예약상태 : 예약중이라면 빨간색으로 예약중이라고 표시</div>
+					<br /> <input type="radio" name="table_num" value="8" />
+				</div>
+				<div class="box">
+					<strong>9번 테이블</strong>
+					<div class="info">좌석수 : 4인석</div>
+					<div class="marking">예약상태 : 예약중이라면 빨간색으로 예약중이라고 표시</div>
+					<br /> <input type="radio" name="table_num" value="9" />
+				</div>
+				<div class="box">
+					<strong>10번 테이블</strong>
+					<div class="info">좌석수 : 4인석</div>
+					<div class="marking">예약상태 : 예약중이라면 빨간색으로 예약중이라고 표시</div>
+					<br /> <input type="radio" name="table_num" value="10" />
+				</div>
+				<div class="box">
+					<strong>11번 테이블</strong>
+					<div class="info">좌석수 : 4인석</div>
+					<div class="marking">예약상태 : 예약중이라면 빨간색으로 예약중이라고 표시</div>
+					<br /> <input type="radio" name="table_num" value="11" />
+				</div>
+				<div class="box">
+					<strong>12번 테이블</strong>
+					<div class="info">좌석수 : 4인석</div>
+					<div class="marking">예약상태 : 예약중이라면 빨간색으로 예약중이라고 표시</div>
+					<br /> <input type="radio" name="table_num" value="12" />
+				</div>
+			</div>
+			
+			
+			
+<!-- 현재 예약 테이블 -->			
+<c:if test="${list5 != null}">			
+<table border="1">
+<tr>
+	<tr><td>번호</td><td>아이디</td><td>예약날짜</td>
+	<td>예약시간</td><td>예약테이블</td>
+</tr>
+<c:forEach var="dto5" items="${list5}">
+	<tr>
+		<td>${dto5.reservation_num}</td>
+		<td>${dto5.member_email}</td>
+		<td>${dto5.reservation_date}</td>
+		<td>${dto5.reservation_time }</td>
+		<td>${dto5.table_num}</td>
+		<td><input type="button" value="삭제" onclick="fndelete(${dto5.reservation_num})"/></td>
+	</tr>
+</c:forEach>
+</table>
+</c:if>			
+			
+			
+			
+
+
+			<div style="margin-top: 475px">
+				<button class="btn btn-danger" type="button" name="selectSearch"
+					value="cancle" onclick="fnSearch()">예약조회</button>
+				<button class="btn btn-primary" type="submit" name="selectDay"
+					value="next" onclick="fnreservation(${email})">예약하기</button>
+
+			</div>
+		</form> 
+	</div>
+
+
+	
+<%@include file="/footer.jsp"%>
