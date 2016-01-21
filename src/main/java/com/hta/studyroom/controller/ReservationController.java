@@ -55,8 +55,10 @@ public class ReservationController {
 		
 		System.out.println("dto에 저장된 날짜는"+studyroomdto.getReservation_date());
 		if(studyroomdto.getReservation_date() == ""){
+			System.out.println("step1이동~~~!!");
 			ModelAndView mav4 = new ModelAndView("/study_room/reservation/step1");
-			mav4.addObject("NullValueError", "NullValue");
+			String NullValue = "컨트롤로 이동한 ";
+			mav4.addObject("NullValueError", NullValue);
 			return mav4;
 		}
 		

@@ -13,28 +13,36 @@
 			location.href = "reservation.delete?reservation_num="+reservation_num;
 		}
 		else{
-			location.href = "reservation.search";
+			location.href = "reservation1.delete";
 		}
 	}
 </script>
 </head>
 <body>
-<h1>현재 예약 상태</h1>
+<h1>${name}님의 현재 예약 상태</h1>
+
 <table border="1">
-<tr>
-	<tr><td>번호</td><td>아이디</td><td>예약날짜</td>
-	<td>예약시간</td><td>예약테이블</td>
-</tr>
-<c:forEach var="dto5" items="${list5}">
+<c:if test="${!list5.isEmpty()}"><!-- 리스트가 아무것도 없는 것이 아니라면 실행 -->
 	<tr>
-		<td>${dto5.reservation_num}</td>
-		<td>${dto5.member_email}</td>
-		<td>${dto5.reservation_date}</td>
-		<td>${dto5.reservation_time }</td>
-		<td>${dto5.table_num}</td>
-		<td><input type="button" value="삭제" onclick="fndelete(${dto5.reservation_num})"/></td>
+		<tr><td>번호</td><td>아이디</td><td>예약날짜</td>
+		<td>예약시간</td><td>예약테이블</td>
 	</tr>
-</c:forEach>
+	<c:forEach var="dto5" items="${list5}">
+		<tr>
+			<td>${dto5.reservation_num}</td>
+			<td>${dto5.member_email}</td>
+			<td>${dto5.reservation_date}</td>
+			<td>${dto5.reservation_time }</td>
+			<td>${dto5.table_num}</td>
+			<td><input type="button" value="삭제" onclick="fndelete(${dto5.reservation_num})"/></td>
+		</tr>
+	</c:forEach>
+</c:if>
 </table>
+<c:if test="${list5.isEmpty()}"><!-- 리스트가 아무것도 없으면 실행 -->
+
+<h2 style="color: red;">현재 예약하신게 없습니다.</h1>
+</c:if>
+
 </body>
 </html>

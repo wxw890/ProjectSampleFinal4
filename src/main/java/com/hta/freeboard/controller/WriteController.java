@@ -29,9 +29,9 @@ public class WriteController {
 	public String  submitted(@ModelAttribute BoardDto dto, HttpSession session){//@ModelAttribute란
 		//System.out.println("글 저장....");
 		//System.out.println(dto.getB_title() +","+ dto.getB_content());
-		String session_name = (String)session.getAttribute("name");//로그인 이름 불러오기
-		
-		dto.setB_writer(session_name);//작성자에 이름 집어넣기
+		//String session_name = (String)session.getAttribute("name");//로그인 이름 불러오기
+		String session_email = (String)session.getAttribute("email");
+		dto.setB_writer(session_email);//작성자에 이름 집어넣기
 		try {
 			boardService.posupdateall(dto);
 			boardService.write(dto);

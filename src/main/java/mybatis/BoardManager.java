@@ -54,6 +54,7 @@ public class BoardManager {
 	}
 	public static BoardDto finBySeq(int seq){
 		SqlSession session = sqlFactory.openSession();
+		System.out.println("메니져에서 찾을 넘버"+seq);
 		BoardDto dto = session.selectOne("findBySeq", seq);
 		return dto;
 	}

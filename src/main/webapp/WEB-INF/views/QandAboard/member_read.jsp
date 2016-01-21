@@ -4,13 +4,13 @@
 
 <script>
 	function fnUpdate(){
-		location.href="update.board1?b_seq="+${dto["b_num"]};//스크립트를 통해 번호 넘겨주기
+		location.href="update.board2?b_seq="+${dto["b_num"]};//스크립트를 통해 번호 넘겨주기
 	}
 	function fnDelete(){
-		location.href="delete.board1?b_seq="+${dto["b_num"]};
+		location.href="delete.board2?b_seq="+${dto["b_num"]};
 	}
 	function fnReply(){
-		location.href="reply.board1?b_seq="+${dto["b_num"]};
+		location.href="reply.board2?b_seq="+${dto["b_num"]};
 	}
 </script>
 
@@ -28,11 +28,12 @@
 		</tr>
 		<tr>
 			<td colspan="2" align="center">
-				<input type="button" value="목록보기" onclick="location.href='list.board1'"> <!-- onclick에서 스크립트 언어 location.href통해 이동할수있음 -->
+				<input type="button" value="수정하기" onclick="fnUpdate()">
+				<input type="button" value="삭제하기" onclick="fnDelete()">
+				<input type="button" value="목록보기" onclick="location.href='list.board2'"> <!-- onclick에서 스크립트 언어 location.href통해 이동할수있음 -->
 				<input type="button" value="댓글달기" onclick="fnReply()">
 			</td>
 		</tr>
 	</table>
 	</div>
-
 <%@include file="/footer.jsp"%>

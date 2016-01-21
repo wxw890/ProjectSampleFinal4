@@ -25,6 +25,7 @@ public class BookConditionController {
 
 	@RequestMapping(value="/condition.book", method=RequestMethod.GET)
 	public String condition(){
+		
 		return "conditionbook";
 		
 	}

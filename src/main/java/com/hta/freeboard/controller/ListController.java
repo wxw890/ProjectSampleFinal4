@@ -44,7 +44,7 @@ public class ListController{
 		dto.setKeyField(keyField);//dto에 집어넣는다.
 		dto.setKeyWord(keyWord);
 		String session_email = (String) session.getAttribute("email");
-		
+		System.out.println("무엇이 무엇이???"+dto.getB_content());
 		System.out.println("****로그인된 아이디는??"+session_email);
 		
 		req.setAttribute("dto", dto);//jsp에 사용하기위해 request로 저장해둔다.

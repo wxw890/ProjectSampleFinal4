@@ -35,7 +35,7 @@
 			  							  //있게 때문이다. 하지만 여기서는 혹시모를 상황을 위해서 추가하겠다.
 		var day1 = document.getElementById("day").value;
 		//var submit1 = document.getElementById("selectDay");
-		alert("날짜는"+day);
+		//alert("날짜는"+day);
 		//location.href="reservation1.study";
 		if(member_email !== ""){
 			alert("로그인을 하세요!!")
@@ -65,8 +65,8 @@
 <!-- step1Error부분 function들 -->
 <!-- 날짜를 잘못 선택했다고 알려주는 알림창 띄어줌 -->
 <script type="text/javascript">
-	(function (year, month, day) { //step1Error.jsp 페이지를 시작할때 바로 띄어주는 javascript 언어 부분
-		alert("선택하신 날짜 "+year + "년 "+ month + "월 " + day + "일은 잘못된 선택입니다. 다시 확인해주세요!");
+	(function (year, month, day) { //step1Error.jsp 페이지를 시작할때 바로 띄어주는(무조건 먼저!!) javascript 언어 부분
+		alert("선택하신 날짜 "+year + "년 "+ month + "월 " + day + "일은 현재 예약되었거나 이미 지난 날짜 입니다. 다시 확인해주세요!");
 	})('${list.get(0)}', '${list.get(1)}', '${list.get(2)}');
 </script>
 
@@ -92,7 +92,7 @@
 		<td>가져온 날짜들 ${list.get(0)}, ${list.get(1)}, ${list.get(2)}</td>
 	
 		</tr>
-
+		<h1>step1Error:${NullValueError}</h1>
 
 		
 		<form action="reservation2.study" method="post">
@@ -127,6 +127,12 @@
 			</p>
 
 			<div class="tableBox">
+				<div class="box">
+					<strong>0번 테이블</strong>
+					<div class="info">좌석수 : 6인석</div>
+					<div class="marking">예약상태 : 예약중이라면 빨간색으로 예약중이라고 표시</div>
+					<br /> <input type="radio" name="table_num" value="0" />
+				</div>
 				<div class="box">
 					<strong>1번 테이블</strong>
 					<div class="info">좌석수 : 6인석</div>
