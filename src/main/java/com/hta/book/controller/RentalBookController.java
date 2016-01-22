@@ -33,7 +33,7 @@ public class RentalBookController {
 		String book_title = req.getParameter("book_title");
 		System.out.println("rentalcontroller:"+book_num);
 		String member_email = (String)session.getAttribute("email");
-		session.setAttribute("member_email", member_email); //sessionì— ì´ë©”ì¼ê°’ ì €ì¥.
+		session.setAttribute("member_email", member_email); //session¿¡ ÀÌ¸ŞÀÏ°ª ÀúÀå.
 		infodto.setMember_email(member_email);
 		infodto.setBook_num(book_num);
 		bookService.bookrental(dto, infodto,book_num);
@@ -51,7 +51,7 @@ public class RentalBookController {
 	public ModelAndView mylist(@ModelAttribute BookandRentalDto joindto, HttpSession session, HttpServletRequest req){
 		ModelAndView mav = new ModelAndView("myrental");
 		String member_email = (String)session.getAttribute("email");
-		session.setAttribute("member_email", member_email); //sessionì— ì´ë©”ì¼ê°’ ì €ì¥.
+		session.setAttribute("member_email", member_email); //session¿¡ ÀÌ¸ŞÀÏ°ª ÀúÀå.
 		joindto.setMember_email(member_email);
 		
 		List list = bookService.mylist(joindto);

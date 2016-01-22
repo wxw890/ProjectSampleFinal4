@@ -10,18 +10,18 @@ public class Member {
 	   private String member_phonenumber;  
 	   private String member_password;     
 	   private String member_address;      
-	   private int rentalimit;
+	   private int rentallimit;
 	   private int reslimit;
 	   
 	   
 	public int getRentalimit() {
-		return rentalimit;
+		return rentallimit;
 	}
 
 
 
 	public void setRentalimit(int rentalimit) {
-		this.rentalimit = rentalimit;
+		this.rentallimit = rentalimit;
 	}
 
 
@@ -52,7 +52,7 @@ public class Member {
 		this.member_phonenumber = member_phonenumber;
 		this.member_password = member_password;
 		this.member_address = member_address;
-		this.rentalimit = rentalimit;
+		this.rentallimit = rentalimit;
 		this.reslimit = reslimit;
 	}
 

@@ -1,5 +1,7 @@
 package com.hta.book.repository;
 
+import org.springframework.web.multipart.MultipartFile;
+
 public class BookandRentalDto {
 	private int book_num;          
 	private String  book_loc;
@@ -21,15 +23,46 @@ public class BookandRentalDto {
 	private int rental_res1;
 	private int rental_return;           
 	private String member_email;
-	private int overdate;   //¿¬Ã¼ÀÏ
-	private String returndate; //¹Ý³³ÀÏ
-	private int res_num; //¿¹¾à¹øÈ£
-	private String res_date; //¿¹¾àÀÏ 		
-    private String res_end;// ¿¹¾à Á¾·áÀÏ
-    
-	
-    
-    
+	private int overdate;   //ï¿½ï¿½Ã¼ï¿½ï¿½
+	private String returndate; //ï¿½Ý³ï¿½ï¿½ï¿½
+	private int res_num; //ï¿½ï¿½ï¿½ï¿½ï¿½È£
+	private String res_date; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 		
+    private String res_end;// ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+    private int rentallimit; 
+    private int reslimit;
+    private MultipartFile file;
+    private String book_imgname;
+
+	public String getBook_imgname() {
+		return book_imgname;
+	}
+	public void setBook_imgname(String book_imgname) {
+		this.book_imgname = book_imgname;
+	}
+	public MultipartFile getFile() {
+		return file;
+	}
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
+	public String getBook_img() {
+		return book_img;
+	}
+	public void setBook_img(String book_img) {
+		this.book_img = book_img;
+	}
+	public int getRentallimit() {
+		return rentallimit;
+	}
+	public void setRentallimit(int rentallimit) {
+		this.rentallimit = rentallimit;
+	}
+	public int getReslimit() {
+		return reslimit;
+	}
+	public void setReslimit(int reslimit) {
+		this.reslimit = reslimit;
+	}
 	public String getRes_date() {
 		return res_date;
 	}
@@ -78,12 +111,7 @@ public class BookandRentalDto {
 	public void setBook_status(boolean book_status) {
 		this.book_status = book_status;
 	}
-	public String getBook_img() {
-		return book_img;
-	}
-	public void setBook_img(String book_img) {
-		this.book_img = book_img;
-	}
+	
 	public String getBook_imdate() {
 		return book_imdate;
 	}

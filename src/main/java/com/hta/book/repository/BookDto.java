@@ -3,19 +3,39 @@ package com.hta.book.repository;
 import org.springframework.web.multipart.MultipartFile;
 
 public class BookDto {
-	private int book_num;  // Ã¥ µî·Ï¹øÈ£        
-	private String  book_loc;//¼ÒÀåÀ§Ä¡
-	private boolean  book_status; // Ã¥ ´ëÃâ»óÅÂ
-	private String  book_img;// Ã¥ ÀÌ¹ÌÁö
-	private String  book_imdate;//Ã¥ ÀÔ°í ³¯Â¥
-	private boolean  book_res;//¿¹¾à »óÅÂ
-	private String  book_chunggu;//Ã»±¸±âÈ£
+	private int book_num;  // Ã¥ ï¿½ï¿½Ï¹ï¿½È£        
+	private String  book_loc;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¡
+	private boolean  book_status; // Ã¥ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	private String  book_img;// Ã¥ ï¿½Ì¹ï¿½ï¿½ï¿½
+	private String  book_imdate;//Ã¥ ï¿½Ô°ï¿½ ï¿½ï¿½Â¥
+	private boolean  book_res;//ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	private String  book_chunggu;//Ã»ï¿½ï¿½ï¿½ï¿½È£
 	private String  book_isbn; //isbn
-	private String  book_title; //Á¦¸ñ         
-	private String  book_label;  //ÃâÆÇ»ç        
-	private String  book_author; //ÀúÀÚ     
-	private String  book_genre; //Àå¸£
+	private String  book_title; //ï¿½ï¿½ï¿½ï¿½         
+	private String  book_label;  //ï¿½ï¿½ï¿½Ç»ï¿½        
+	private String  book_author; //ï¿½ï¿½ï¿½ï¿½     
+	private String  book_genre; //ï¿½å¸£
+	private MultipartFile upFile;
+	private String book_imgname;
 
+	public String getBook_imgname() {
+		return book_imgname;
+	}
+	public void setBook_imgname(String book_imgname) {
+		this.book_imgname = book_imgname;
+	}
+	public MultipartFile getUpFile() {
+		return upFile;
+	}
+	public void setUpFile(MultipartFile upFile) {
+		this.upFile = upFile;
+	}
+	public String getBook_img() {
+		return book_img;
+	}
+	public void setBook_img(String book_img) {
+		this.book_img = book_img;
+	}
 	public boolean isBook_status() {
 		return book_status;
 	}
@@ -41,12 +61,7 @@ public class BookDto {
 		this.book_loc = book_loc;
 	}
 
-	public String getBook_img() {
-		return book_img;
-	}
-	public void setBook_img(String book_img) {
-		this.book_img = book_img;
-	}
+	
 	public String getBook_imdate() {
 		return book_imdate;
 	}
