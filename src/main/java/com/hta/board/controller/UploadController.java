@@ -51,11 +51,15 @@ public class UploadController {
 		
 		Set pathset = req.getSession().getServletContext().getResourcePaths("/");//다른 경로 확인 방법인것같다.
 		System.out.println("2-1. 실제 경로"+ pathset);
-		String pdfPath = req.getSession().getServletContext().getRealPath("/images/Uploadimages/");//실제 경로를 찾아준다. 즉, req.getSession().getServletContext().getRealPath()이라는 뜻은
+		String pdfPath = req.getSession().getServletContext().getRealPath("/");//실제 경로를 찾아준다. 즉, req.getSession().getServletContext().getRealPath()이라는 뜻은
 																		//   workspace/프로젝트폴더명/src/main/webapp을 뜻한다.
 																		// 그리고 "/images/Uploadimages/"이란 webapp+/images/Uploadimages/를 붙인다는 뜻이다. 
+		
+		String savePath = pdfPath + "images/Uploadimages/";
+		
 		System.out.println("2-2. 실제 경로"+ pdfPath);
-		File file = new File(pdfPath+uploadDto.getFiles().getOriginalFilename());//전체 실제경로 + 파일이름
+		System.out.println("2-3. 실제 경로"+ savePath);
+		File file = new File(savePath+uploadDto.getFiles().getOriginalFilename());//전체 실제경로 + 파일이름
 		System.out.println("3.업로드 파일경로"+ file.getPath());
 		
 		String path2="images/Uploadimages/";//실제 경로(전체 경로를 사용하지 않는 이유는 jsp에서 img로 출력할때 전체경로로는 출력이 안되기 때문이다.)

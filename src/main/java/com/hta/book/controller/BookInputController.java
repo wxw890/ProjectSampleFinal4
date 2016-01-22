@@ -52,15 +52,13 @@ public class BookInputController {
 					WebUtils.getRealPath(req.getSession().getServletContext(), "/upload");//WebUtils.getRealPath는 실제 경로를 전달해준다. 즉, upload폴더의 위치를 알아 낼수 있다.
 					*/
 			
-			String path = "C:/Users/JHTA/Documents/workspace-sts-3.7.2.RELEASE/bookmanagermentsystem-rantal/src/main/webapp/upload";
-			System.out.println("파일경로:"+path);
-			System.out.println("al"+file);
-			System.out.println("파일이름:"+file.getOriginalFilename());
+			String path = "F:/springWorkspace2/ProjectSampleFinal-master/src/main/webapp/images/bookimage";
+			//String path = req.getSession().getServletContext().getRealPath("/images/bookimage/");
+			
 			BookImgDao uploadDao = new BookImgDao();
-			String rootpath = "/upload/";
 			uploadDao.writeFile(file, path, file.getOriginalFilename());
-			dto.setBook_img(rootpath);
-			dto.setBook_imgname(file.getOriginalFilename());
+			dto.setBook_img(file.getOriginalFilename());
+		
 			
             try {
 				bookService.bookinput(dto);

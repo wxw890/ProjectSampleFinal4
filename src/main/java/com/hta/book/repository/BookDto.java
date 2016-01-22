@@ -3,27 +3,21 @@ package com.hta.book.repository;
 import org.springframework.web.multipart.MultipartFile;
 
 public class BookDto {
-	private int book_num;  // å ��Ϲ�ȣ        
-	private String  book_loc;//������ġ
-	private boolean  book_status; // å �������
-	private String  book_img;// å �̹���
-	private String  book_imdate;//å �԰� ��¥
-	private boolean  book_res;//���� ����
-	private String  book_chunggu;//û����ȣ
-	private String  book_isbn; //isbn
-	private String  book_title; //����         
-	private String  book_label;  //���ǻ�        
-	private String  book_author; //����     
-	private String  book_genre; //�帣
+	private int book_num;    //책 번호
+	private String  book_loc;//책 소장위치
+	private boolean  book_status;//책 대여상태
+	private String  book_img;//책 이미지
+	private String  book_imdate;//책 입고날짜
+	private boolean  book_res;//책 예약상태
+	private String  book_chunggu;//책 청구기호
+	private String  book_isbn;//책 isbn
+	private String  book_title; //책 제목         
+	private String  book_label;  //책 출판사        
+	private String  book_author;  //책 저자        
+	private String  book_genre;//책 장르
 	private MultipartFile upFile;
-	private String book_imgname;
 
-	public String getBook_imgname() {
-		return book_imgname;
-	}
-	public void setBook_imgname(String book_imgname) {
-		this.book_imgname = book_imgname;
-	}
+	
 	public MultipartFile getUpFile() {
 		return upFile;
 	}

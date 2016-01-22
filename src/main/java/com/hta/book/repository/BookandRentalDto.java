@@ -3,42 +3,34 @@ package com.hta.book.repository;
 import org.springframework.web.multipart.MultipartFile;
 
 public class BookandRentalDto {
-	private int book_num;          
-	private String  book_loc;
-	private boolean  book_status;
-	private String  book_img;
-	private String  book_imdate;
-	private boolean  book_res;
-	private String  book_chunggu;
-	private String  book_isbn;
-	private String  book_title;          
-	private String  book_label;          
-	private String  book_author;          
-	private String  book_genre;
-	private int rental_num;
-    private String rental_date;
-	private String renbtal_returndate;
-	private int return_sal;
-	private int rental_extension;
-	private int rental_res1;
-	private int rental_return;           
-	private String member_email;
-	private int overdate;   //��ü��
-	private String returndate; //�ݳ���
-	private int res_num; //�����ȣ
-	private String res_date; //������ 		
-    private String res_end;// ���� ������
-    private int rentallimit; 
-    private int reslimit;
+	private int book_num;    //책 번호
+	private String  book_loc;//책 소장위치
+	private boolean  book_status;//책 대여상태
+	private String  book_img;//책 이미지
+	private String  book_imdate;//책 입고날짜
+	private boolean  book_res;//책 예약상태
+	private String  book_chunggu;//책 청구기호
+	private String  book_isbn;//책 isbn
+	private String  book_title; //책 제목         
+	private String  book_label;  //책 출판사        
+	private String  book_author;  //책 저자        
+	private String  book_genre;//책 장르
+    private String rental_date;//대여날짜
+	private String renbtal_returndate;//대여 후에 반납예정날짜
+	private int return_sal;//연체료      
+	private int rental_extension; //책 연장
+	private String member_email;//회원이메일
+	private int overdate;   //연체일
+	private String returndate; //반납 날짜
+	
+	private String res_date; //예약날짜		
+    private String res_end;//예약 종료일
+    private int rentallimit;//대여 권 수 한계
+    private int reslimit;//예약 권 수 한계
     private MultipartFile file;
-    private String book_imgname;
 
-	public String getBook_imgname() {
-		return book_imgname;
-	}
-	public void setBook_imgname(String book_imgname) {
-		this.book_imgname = book_imgname;
-	}
+
+	
 	public MultipartFile getFile() {
 		return file;
 	}
@@ -75,12 +67,7 @@ public class BookandRentalDto {
 	public void setRes_end(String res_end) {
 		this.res_end = res_end;
 	}
-	public int getRes_num() {
-		return res_num;
-	}
-	public void setRes_num(int res_num) {
-		this.res_num = res_num;
-	}
+	
 	public int getOverdate() {
 		return overdate;
 	}
@@ -160,12 +147,7 @@ public class BookandRentalDto {
 	public void setBook_genre(String book_genre) {
 		this.book_genre = book_genre;
 	}
-	public int getRental_num() {
-		return rental_num;
-	}
-	public void setRental_num(int rental_num) {
-		this.rental_num = rental_num;
-	}
+	
 	public String getRental_date() {
 		return rental_date;
 	}
@@ -184,23 +166,12 @@ public class BookandRentalDto {
 	public void setReturn_sal(int return_sal) {
 		this.return_sal = return_sal;
 	}
+	
 	public int getRental_extension() {
 		return rental_extension;
 	}
 	public void setRental_extension(int rental_extension) {
 		this.rental_extension = rental_extension;
-	}
-	public int getRental_res1() {
-		return rental_res1;
-	}
-	public void setRental_res1(int rental_res1) {
-		this.rental_res1 = rental_res1;
-	}
-	public int getRental_return() {
-		return rental_return;
-	}
-	public void setRental_return(int rental_return) {
-		this.rental_return = rental_return;
 	}
 	public String getMember_email() {
 		return member_email;

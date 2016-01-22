@@ -1,7 +1,7 @@
 package com.hta.book.repository;
 
 public class BookResDto {
-	private int res_num; 
+	
     private String member_email; 
     private int book_num;
     private String res_date; 		
@@ -20,12 +20,7 @@ public class BookResDto {
 	public void setRes_end(String res_end) {
 		this.res_end = res_end;
 	}
-	public int getRes_num() {
-		return res_num;
-	}
-	public void setRes_num(int res_num) {
-		this.res_num = res_num;
-	}
+
 	public String getMember_email() {
 		return member_email;
 	}

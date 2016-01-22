@@ -1,18 +1,17 @@
 package com.hta.book.repository;
 
 public class RentalInfoDto {
-	private int rental_num;
-    private String rental_date;
-	private String renbtal_returndate; //¹İ³³¿¹Á¤ÀÏ
-	private int return_sal;//¿¬Ã¼·á
-	private int rental_extension;//¿¹¾à»óÅÂ
-	private int rental_res1;//¿¹¾àÀÚ
-	private int rental_return;//¹İ³³»óÅÂ
+
+    private String rental_date;//ëŒ€ì—¬ ë‚ ì§œ
+	private String renbtal_returndate; //ë°˜ë‚© ì˜ˆì •ì¼
+	private int return_sal;//ì—°ì²´ë£Œ
+	private int rental_extension;//ì±… ì—°ì¥ ìƒíƒœ
+
+
 	private int book_num;            
 	private String member_email;
-    private String overdate;   //¿¬Ã¼ÀÏ
-    private String returndate; //¹İ³³ÀÏ
-	
+    private String overdate;   //ì—°ì²´ì¼
+   	
     
     
 	public String getOverdate() {
@@ -21,18 +20,8 @@ public class RentalInfoDto {
 	public void setOverdate(String overdate) {
 		this.overdate = overdate;
 	}
-	public String getReturndate() {
-		return returndate;
-	}
-	public void setReturndate(String returndate) {
-		this.returndate = returndate;
-	}
-	public int getRental_num() {
-		return rental_num;
-	}
-	public void setRental_num(int rental_num) {
-		this.rental_num = rental_num;
-	}
+
+
 	public String getRental_date() {
 		return rental_date;
 	}
@@ -57,18 +46,7 @@ public class RentalInfoDto {
 	public void setRental_extension(int rental_extension) {
 		this.rental_extension = rental_extension;
 	}
-	public int getRental_res1() {
-		return rental_res1;
-	}
-	public void setRental_res1(int rental_res1) {
-		this.rental_res1 = rental_res1;
-	}
-	public int getRental_return() {
-		return rental_return;
-	}
-	public void setRental_return(int rental_return) {
-		this.rental_return = rental_return;
-	}
+
 	public int getBook_num() {
 		return book_num;
 	}
