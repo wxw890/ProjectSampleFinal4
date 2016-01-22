@@ -39,6 +39,8 @@ public class ReadController {
 			mav2.addObject("filepath", dto.getFilepath());
 			return mav2;
 		}
+		mav.addObject("filename", dto.getFilename());
+		mav.addObject("filepath", dto.getFilepath());
 		boardService.increaseCount(dto);
 		mav.addObject("dto",dto);
 		return mav;

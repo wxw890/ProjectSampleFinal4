@@ -210,7 +210,10 @@
 
 
 
-<!-- 현재 예약 테이블 -->			
+<!-- 현재 예약 테이블 -->
+<c:if test="${list5 == null}">
+	<h1>조회된 예약이 없습니다.</h1>
+</c:if>					
 <c:if test="${list5 != null}">			
 <table border="1">
 <tr>

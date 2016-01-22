@@ -66,7 +66,7 @@ public class ListController{
 			}
 			else{
 				
-				ModelAndView mav2 = new ModelAndView("index");
+				ModelAndView mav2 = new ModelAndView("/member/login/loginForm");
 				mav2.addObject("email1", session_email);
 				return mav2;
 			}

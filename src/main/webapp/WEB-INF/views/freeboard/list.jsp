@@ -6,7 +6,7 @@
 <%@page import="java.util.List" %>
 <%@page import="com.hta.freeboard.repository.BoardDto" %>
 <%@include file="/header.jsp"%>
-<!-- 정의부분 -->
+<!-- 정의부분, freeboard는 공지사항이다.!!!!!!!!!!!!!!!!!!! -->
 
 <%! 
 	public String getParam(HttpServletRequest req, String pName){
@@ -109,7 +109,7 @@ function check(){
       <div class="blog-container">
         <div class="row">
           <center><br>
-			<h2>자유게시판</h2>
+			<h2>공지사항</h2>
 			
 			<table align=center border=0 width=80%>
 			<tr>

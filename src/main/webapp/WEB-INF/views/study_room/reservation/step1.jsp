@@ -32,7 +32,7 @@
 		//alert("날짜는"+day1);
 		//alert("아이디"+email);
 		//location.href="reservation1.study";
-		if(email === ""){
+		if(email === null){
 			alert("로그인을 하세요!!!")
 			//location.href="reservation.study" //이부분에서는 form태그 안에서 버튼이 submit 타입이라서 location.href는 GET방식이라 아마 GET방식으로 가다가 POST방식 또한 같이가서 에러가 발생하는 것 같다.
 			//window.history.back(0);//버튼이 submit인 POST방식에서는 window.history.back()을 해야 되돌갈수 있는 듯하다....
@@ -70,17 +70,9 @@
 			</tr>
 		</c:forEach> -->
 <c:set var="list" value="${list}"></c:set>
-<c:forEach var="i" begin="0" end="2" step="1">
-	<tr>
-		<td>${list.get(i)}</td>
+
+
 	
-	</tr>
-</c:forEach>
-	<tr>
-		<td>가져온 날짜들 ${list.get(0)}, ${list.get(1)}, ${list.get(2)}</td>
-	
-	</tr>
-	<h1>step1:${NullValueError}</h1>
 	
 		
 		<form action="reservation2.study" method="post"> 
@@ -199,7 +191,7 @@
 			
 <!-- 현재 예약 테이블 -->
 <c:if test="${list5 == null}">
-	<h1>선택한 날짜에 예약이 없습니다.</h1>
+	<h1>조회된 예약이 없습니다.</h1>
 </c:if>			
 <c:if test="${list5 != null}">			
 <table border="1">
@@ -222,7 +214,7 @@
 			
 			
 
-			<h3>이메일:${email}</h3>
+			
 			<div style="margin-top: 475px">
 				<button class="btn btn-danger" type="button" name="selectSearch"
 					value="cancle" onclick="fnSearch()">예약조회</button>

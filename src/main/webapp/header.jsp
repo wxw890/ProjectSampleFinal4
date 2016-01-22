@@ -23,36 +23,15 @@ Modernizr.load({
 });
 </script>
 <!-- 게시판 부분 function들 -->
-<script>
-	function fnTest(email){//로그인 한 상태에서 게시판 접근할수게 해주는 소스코드
-		if(email==null){
-			alert("로그인을 하세요!!")
-			location.href="index";
-		}else if(email!=null){
-			location.href="list.board";
-		}
-	}
-</script>
-<script>
-	function fnTest1(email){//로그인 한 상태에서 게시판 접근할수게 해주는 소스코드
-		if(email==null){
-			alert("로그인을 하세요!!")
-			location.href="index";
-		}else if(email!=null){
-			location.href="list.board1";
-		}
-	}
-</script>
-<script>
-	function fnTest2(email){//로그인 한 상태에서 게시판 접근할수게 해주는 소스코드
-		if(email==null){
-			alert("로그인을 하세요!!")
-			location.href="index";
-		}else if(email!=null){
-			location.href="list.board2";
-		}
-	}
-</script>
+
+<!-- <script> -->
+<!-- 	function fnTest(email){//로그인 한 상태에서 게시판 접근할수게 해주는 소스코드 -->
+<!-- 		if(email==null){ -->
+<!-- 		alert("로그인을 하세요!!") -->
+			
+<!-- 	} -->
+<!--  	} -->
+<!-- </script> -->
 
 
 
@@ -127,20 +106,20 @@ Modernizr.load({
                         검색 및 대여</font></a></li>
                <li><a href="#"><font color="#E8CEC2"; >게시판</font></a>
                   <ul class="dropdown" style="background-color: #2A2A2A">
-                     <li style="background-color: #2A2A2A"><a href="list.board" onclick="fnTest(${email})"><font
+                  	<li style="background-color: #2A2A2A"><a href="list.board1" onclick="fnTest1(${email})"><font
                            color="#E8CEC2"; >공지사항</font></a>
-                     <li style="background-color: #2A2A2A"><a href="list.board1" onclick="fnTest1(${email})"><font
-                           color="#E8CEC2"; >자유게시판</font></a>
+                     <li style="background-color: #2A2A2A"><a href="list.board" onclick="fnTest(${email})"><font
+                           color="#E8CEC2"; >자유게시판</font></a>              
                      <li style="background-color: #2A2A2A"><a href="list.board2" onclick="fnTest2(${email})"><font
                            color="#E8CEC2"; >질문게시판</font></a>
                   </ul></li>
 
                <li><a href="#"><font color="#E8CEC2"; >스터디룸</font></a>
                   <ul class="dropdown">
-                     <li style="background-color: #2A2A2A"><a href="reservation.study"><font
-                           color="#E8CEC2"; >스터디룸 예약하기</font></a></li>
+                     <li style="background-color: #2A2A2A"><a href="reservation.study" onclick="fnTest3(${email})"><font
+                           color="#E8CEC2"; >스터디룸 예약하기</font></a>
 
-                  </ul> <c:choose>
+                  </ul></li> <c:choose>
                      <c:when test="${name ne null && email ne 'admin@hta.co.kr'}">
                         <li><a href="#"><font color="#E8CEC2"; >마이페이지</font></a>
                            <ul class="dropdown">

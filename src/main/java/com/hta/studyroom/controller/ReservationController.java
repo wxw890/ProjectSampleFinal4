@@ -33,11 +33,15 @@ public class ReservationController {
 		this.studyroomService = studyroomService;
 	}
 
-	@RequestMapping("/reservation.study")
+	@RequestMapping(value = "/reservation.study", method=RequestMethod.GET)
 	public ModelAndView form(HttpSession session){
 		ModelAndView mav = new ModelAndView("/study_room/reservation/step1");
 		String member_email = (String)session.getAttribute("email");
-		
+		if(member_email==null){
+			ModelAndView mav2 = new ModelAndView("/member/login/loginForm");
+			mav2.addObject("email", member_email);
+			return mav2;
+		}
 		mav.addObject("email", member_email);
 		System.out.println("step1 이동 ^^"+member_email );
 		return mav;

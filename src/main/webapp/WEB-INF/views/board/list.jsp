@@ -8,7 +8,7 @@
 
  <%@include file="/header.jsp"%>
 
-<!-- 정의부분 -->
+<!-- 정의부분 자유게시판!!!!!!!!!!!!!!!!!-->
 
 <%! 
 	public String getParam(HttpServletRequest req, String pName){
@@ -110,7 +110,7 @@ function check(){
       <div class="blog-container">
         <div class="row">
           <center><br>
-			<h2>공지사항</h2>
+			<h2>자유게시판</h2>
 			
 			<table align=center border=0 width=80%>
 			<tr>

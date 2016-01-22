@@ -3,13 +3,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@include file="/header.jsp"%>
 
-<script>
-function fnOnclick(path){
-	if(path!==null){
-	window.location.reload(true);
-	}
-}
-</script>
 <h2>글쓰기 페이지</h2>
 <form action="write.board" method="post" id="freeboardWrite">
 	제목:<input type="text" name="b_title"/><br/><br/>
@@ -25,9 +18,7 @@ function fnOnclick(path){
 	<input type="submit" value="업로드"/>
 </form:form>
 <c:if test="${path!=null}">
-<input type="button" value="업로드 확인" onclick="fnOnclick('${path}')"/>
-
-<img src=${path}${name} alt="HTML5 Icon" style="width:300px;height:300px;"/>
+	<h3>파일명 : ${name}</h2>
 </c:if>
 
 <%@include file="/footer.jsp"%>
