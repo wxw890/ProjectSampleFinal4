@@ -28,10 +28,10 @@ public class BookResController {
 
 		String member_email = (String)session.getAttribute("email");
 		session.setAttribute("member_email", member_email);
-		System.out.println("¿¹¾à:"+member_email);
+		System.out.println("Â¿Â¹Â¾Ã :"+member_email);
 		resdto.setMember_email(member_email);
 		resdto.setBook_num(book_num);
-		bookService.bookres(book_num, resdto);
+		bookService.bookres(book_num, resdto, member_email);
 	
 		return "redirect:myrental.book";
 		

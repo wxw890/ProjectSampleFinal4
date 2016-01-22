@@ -10,8 +10,34 @@ public class Member {
 	   private String member_phonenumber;  
 	   private String member_password;     
 	   private String member_address;      
+	   private int rentalimit;
+	   private int reslimit;
+	   
+	   
+	public int getRentalimit() {
+		return rentalimit;
+	}
 
-	
+
+
+	public void setRentalimit(int rentalimit) {
+		this.rentalimit = rentalimit;
+	}
+
+
+
+	public int getReslimit() {
+		return reslimit;
+	}
+
+
+
+	public void setReslimit(int reslimit) {
+		this.reslimit = reslimit;
+	}
+
+
+
 	public Member(){
 		
 	}
@@ -19,13 +45,15 @@ public class Member {
 
 
 	public Member(String member_email, String member_name, String member_phonenumber, String member_password,
-			String member_address) {
+			String member_address, int rentalimit, int reslimit) {
 		super();
 		this.member_email = member_email;
 		this.member_name = member_name;
 		this.member_phonenumber = member_phonenumber;
 		this.member_password = member_password;
 		this.member_address = member_address;
+		this.rentalimit = rentalimit;
+		this.reslimit = reslimit;
 	}
 
 	

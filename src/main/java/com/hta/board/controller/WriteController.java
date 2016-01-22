@@ -32,6 +32,16 @@ public class WriteController {
 		//System.out.println(dto.getB_title() +","+ dto.getB_content());
 		//String session_name = (String)session.getAttribute("name");//로그인 이름 불러오기
 		String session_email = (String)session.getAttribute("email");
+		String session_filename = (String)session.getAttribute("filename");
+		String session_filepath = (String)session.getAttribute("filepath");
+		dto.setFilename(session_filename);
+		dto.setFilepath(session_filepath);
+		System.out.println("글번호"+dto.getB_num());
+		System.out.println("글내용"+dto.getB_count());
+		System.out.println("글타이틀"+dto.getB_title());
+		System.out.println("글파일 이름"+dto.getFilename());
+		System.out.println("글파일 경로"+dto.getFilepath());
+		
 		dto.setB_writer(session_email);//작성자에 이름 집어넣기
 		
 		try {

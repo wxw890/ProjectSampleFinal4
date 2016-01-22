@@ -17,6 +17,7 @@
     <typeAlias type="com.hta.book.repository.RentalInfoDto" alias="RentalInfoDto"/>
     <typeAlias type="com.hta.book.repository.BookandRentalDto" alias="BookandRentalDto"/>
     <typeAlias type="com.hta.book.repository.BookResDto" alias="BookResDto"/>
+    <typeAlias type="com.hta.board.repository.UploadDto" alias="UploadDto"/>
   </typeAliases>
   
   <environments default="development"><!-- 여기서 바꿀때 release를 사용할지 development를 사용할지 선택하면 된다. -->

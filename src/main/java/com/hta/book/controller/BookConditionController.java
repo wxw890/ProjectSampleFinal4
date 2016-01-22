@@ -25,7 +25,6 @@ public class BookConditionController {
 
 	@RequestMapping(value="/condition.book", method=RequestMethod.GET)
 	public String condition(){
-		
 		return "conditionbook";
 		
 	}
@@ -39,7 +38,7 @@ public class BookConditionController {
 					dto.getThirditem() == "" &&  dto.getThirdvalue() == "" && 
 					dto.getSecondop() == ""){
 			List list = bookService.condition1(dto);
-			System.out.println("coditon :" + list.size());
+			
 			mav.addObject("list", list);
 			}
 			
@@ -49,8 +48,7 @@ public class BookConditionController {
 					dto.getThirditem() == "" &&  dto.getThirdvalue() == "" && 
 					dto.getSecondop() == ""){
 				List list = bookService.condition2(dto);
-				System.out.println("condition2 :" + dto.getSeconditem());
-				System.out.println("coditon 2 :" + list.size());
+				
 				mav.addObject("list", list);
 			}
 			else if(dto.getItem() != "" &&  dto.getValue() != "" && 
@@ -59,7 +57,7 @@ public class BookConditionController {
 					dto.getSecondop() != ""){
 				
 				List list = bookService.condition3(dto);
-				System.out.println("coditon 3 :" + list.size());
+
 				mav.addObject("list", list);
 			}
 			

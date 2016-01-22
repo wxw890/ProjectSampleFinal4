@@ -1,7 +1,10 @@
 package com.hta.board.service;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
+
+import org.springframework.web.multipart.MultipartFile;
 
 import com.hta.board.repository.BoardDto;
 //인터페이스
@@ -33,5 +36,7 @@ public interface BoardService {
 	public void posupdateall(BoardDto dto);
 	
 	public void increaseCount(BoardDto dto);
+	
+	public void writeFile(MultipartFile file, String path, String filename) throws IOException;
 }
 

@@ -5,8 +5,34 @@
 <title>Insert title here</title>
 <script type="text/javascript">
 	function Rental(num){
-		alert("aaa")
-		location.href="rental.book?book_num="+num;
+		var disbook = document.getElementById("disbook").value
+		
+		if(disbook ==  0){
+			alert("대여처리한다.")
+			location.href="rental.book?book_num="+num;
+			
+		}
+		else{
+			alert("책을 이미 빌렸습니다.")
+		}	
+		
+	}
+	function Res(num){
+		var disbook = document.getElementById("disbook").value
+		var resbook = document.getElementById("resbook").value
+		
+		alert("이미 예약한 책:"+resbook)
+		if(disbook ==  0 && resbook == 0){
+		alert("예약 처리한다.")
+		location.href="res.book?book_num="+num;
+		}
+		else if(disbook == 1){
+			alert("책을 이미 빌렸습니다.")
+		}
+		else if(resbook == 1){
+			alert("책을 이미 예약했습니다.")
+		}
+		
 	}
 	
 </script>
@@ -58,7 +84,8 @@
 		
 		
 		<br/><br/><br/><br/><br/>
-		<form action="res.book" method="get">
+		<input type="hidden" id="disbook" value="${disbook}"/>
+		<input type="hidden" id="resbook" value="${resbook}"/>
 		<table border="1">
 		<tr>
 		<td>순번</td><td>등록번호</td><td>제목</td>
@@ -73,8 +100,6 @@
 				<td>${dto.book_label}</td>
 				<td>${dto.book_author}</td>
 				<td>${dto.book_isbn}</td>
-				<input type="hidden" value="${name}" name="member_email"/>
-				<input type="hidden" value="${dto.book_num}" name="book_num"/>
 				<c:choose>
 				<c:when test="${dto.book_status eq true}">
 					<td>대여중</td>
@@ -91,12 +116,14 @@
 					<td>예약중</td>
 				</c:when>
 				<c:when test="${name!=null && dto.book_res eq false }">
-				<td><input type="submit" value="예약"/></td>
+				<td><input type="button" value="예약" onclick="Res(${dto.book_num})"/></td>
 				</c:when>
 				</c:choose>
 			</tr>
-		</c:forEach>
-		</table>
-		</form>
+			</c:forEach>
+			</table>
+	
+		
+	
 </body>
 </html>

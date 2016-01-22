@@ -15,40 +15,49 @@ import com.hta.book.repository.RentalInfoDto;
 
 public interface BookService {
 
-		//å �߰�
+		//책 추가
 		public void bookinput(BookDto dto) throws SQLException;
-		//��ü ��¸���Ʈ
+		//전체 출력리스트
 		public List getList() throws SQLException;
-		//å����
+		//책보기
 		public BookDto findBynum(int book_num);
-		//���ó�¥�� ���
+		//오늘날짜만 출력
 		public List todayList() throws SQLException;
-		//����
+		//삭제
 		public void bookdelete(int book_num);
-		//����
+		//수정
 		public void updatebook(BookDto dto);
-		//���ǰ˻�
+		//조건검색
 		public List samelist(String book_title);
-		//���ǰ˻�1
+		//조건검색1
 		public List condition1(ConditionDto dto);
-		//���ǰ˻�2
+		//조건검색2
 		public List condition2(ConditionDto dto);
-		//���ǰ˻�3
+		//조건검색3
 		public List condition3(ConditionDto dto);
-		//å �뿩
-		public void bookrental(BookDto dto, RentalInfoDto infodto);
-		
+		//책 대여
+		public void bookrental(BookDto dto, RentalInfoDto infodto, int book_num);
+		//책 대여 리스트
 		public List mylist(BookandRentalDto joindto);
-		
-		public void bookreturn(int rental_num, int book_num);
-		
-		public void bookres(int book_num, BookResDto resdto);
-		
+		//책 반납
+		public void bookreturn(int book_num,String member_email);
+		//책 예약
+		public void bookres(int book_num, BookResDto resdto,String member_email);
+		//책 예약 리스트
 		public List myreslist(BookandRentalDto joindto);
-		
+		//책 연장
 		public void bookextension(int book_num);
+		//책 예약 취소
+		public void bookrescancel(int book_num,String member_email);
+		//관리자 예약 취소
+		public void bookrestodaycancel();
+		//관리자 대여 리스트
+		public List rantalinfoList();
+		//관리자 예약 리스트
+		public List resbookList();
+		//사용자가 책 예약 후에 대여
+		public void bookresrental(BookDto dto, RentalInfoDto infodto, int book_num);
 		
-		public void bookrescancel(int book_num, int res_num);
 
 		
 		

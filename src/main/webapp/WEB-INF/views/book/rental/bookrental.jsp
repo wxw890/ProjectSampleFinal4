@@ -31,7 +31,7 @@
 
 <br/><br/>
 <input type="button" value="메인" onclick="location.href='main'"/>
-<input type="button" value="도서추가" onclick="location.href='bookinput'"/>
+
 
 
 </body>

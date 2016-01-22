@@ -58,7 +58,7 @@
 	</dependency>
     
     
-    	<dependency><!-- Mybatis(실제 개발할때 사용되는 DB 프레임워크) 다운로드 -->
+    <dependency><!-- Mybatis(실제 개발할때 사용되는 DB 프레임워크) 다운로드 -->
 	<groupId>org.mybatis</groupId>
 	<artifactId>mybatis</artifactId>
 	<version>3.3.0</version>
@@ -71,6 +71,17 @@
 	<version>1.2.17</version>
 	</dependency>
     
+    <dependency>
+	<groupId>commons-fileupload</groupId><!-- 파일 업로드 -->
+	<artifactId>commons-fileupload</artifactId>
+	<version>1.3.1</version>
+	</dependency>
+	<dependency>
+	<groupId>commons-io</groupId>
+	<artifactId>commons-io</artifactId>
+	<version>2.4</version>
+	</dependency>
+	
     
     
     

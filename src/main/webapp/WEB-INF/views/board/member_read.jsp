@@ -16,7 +16,11 @@
 
 
 <div align="center">
-	<h2>글보기페이지</h2>
+	<h2>글보기페이지member</h2>
+	<h2>글 이미지 이름${dto["filename"]}</h2>
+	<h2>글 이미지 이름${dto["filepath"]}</h2>
+	<h2>2글 이미지 이름${filename}</h2>
+	<h2>2글 이미지 이름${filepath}</h2>
 	<table border="1">
 		<tr>
 			<td>글번호</td><td>${dto["b_num"] }</td><!-- 변수명에 _나 특수 문자가 들어있으면 dto.b_seq로 사용할수 없음, 그래서 배열형태로 가져올수밖에 없음-->
@@ -37,6 +41,9 @@
 			</td>
 		</tr>
 	</table>
+	<c:if test="${filename!=null}">
+		<img src=${filepath}${filename} alt="HTML5 Icon" style="width:300px;height:300px;">
+	</c:if>
 	</div>
 
 

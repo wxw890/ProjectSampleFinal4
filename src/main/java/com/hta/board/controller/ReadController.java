@@ -35,6 +35,8 @@ public class ReadController {
 			ModelAndView mav2 = new ModelAndView("/board/member_read");
 			boardService.increaseCount(dto);
 			mav2.addObject("dto", dto);
+			mav2.addObject("filename", dto.getFilename());
+			mav2.addObject("filepath", dto.getFilepath());
 			return mav2;
 		}
 		boardService.increaseCount(dto);

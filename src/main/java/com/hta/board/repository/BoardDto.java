@@ -14,11 +14,13 @@ public class BoardDto {
   private int depth;
   private String keyWord;
   private String keyField;
+  private String filename;
+  private String filepath;
   
   public BoardDto(){}
 
 public BoardDto(int b_num, String b_title, String b_content, String b_writer, String b_date, int b_count,
-		String b_password, String member_email, int pos, int depth, String keyWord, String keyField) {
+		String b_password, String member_email, int pos, int depth, String keyWord, String keyField, String filenme, String filepath) {
 	super();
 	this.b_num = b_num;
 	this.b_title = b_title;
@@ -32,6 +34,24 @@ public BoardDto(int b_num, String b_title, String b_content, String b_writer, St
 	this.depth = depth;
 	this.keyWord = keyWord;
 	this.keyField = keyField;
+	this.filename = filenme;
+	this.filepath = filepath;
+}
+
+public String getFilename() {
+	return filename;
+}
+
+public void setFilename(String filename) {
+	this.filename = filename;
+}
+
+public String getFilepath() {
+	return filepath;
+}
+
+public void setFilepath(String filepath) {
+	this.filepath = filepath;
 }
 
 public int getB_num() {

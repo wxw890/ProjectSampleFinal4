@@ -3,6 +3,8 @@ package com.hta.book.controller;
 import java.sql.SQLException;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +15,9 @@ import org.springframework.web.servlet.ModelAndView;
 import com.hta.board.repository.BoardDto;
 import com.hta.board.service.BoardService;
 import com.hta.book.repository.BookDto;
+import com.hta.book.repository.BookandRentalDto;
 import com.hta.book.service.BookService;
+import com.mysql.fabric.xmlrpc.base.Array;
 
 @Controller
 public class BookInfoController {
@@ -28,18 +32,75 @@ public class BookInfoController {
 
 
 	@RequestMapping("/bookinfo")
-	public ModelAndView changehandle(@RequestParam int book_num){
+	public ModelAndView changehandle(@RequestParam int book_num, HttpSession session, BookandRentalDto joindto){
 		ModelAndView mav = new ModelAndView("bookinfo");
 	
 		BookDto dto = bookService.findBynum(book_num);
 		
 		List list = bookService.samelist(dto.getBook_title());
 		
-		System.out.println(list.size());
+		
 		mav.addObject("dto", dto);
 		mav.addObject("list", list);
-		return mav;
+		String member_email = (String)session.getAttribute("email");
+		session.setAttribute("member_email", member_email); //session에 이메일값 저장.
+		joindto.setMember_email(member_email);
 		
+		List renlist = bookService.mylist(joindto);
+		List reslist = bookService.myreslist(joindto);
+		//대여중복처리
+		int disbook = 0;
+		for(int i=0; i<list.size(); i++){
+			for(int j=0; j<renlist.size(); j++){
+				dto = (BookDto)list.get(i);
+			
+				System.out.println("대여할 책:"+dto.getBook_title());
+				String inputbook = dto.getBook_title();
+				BookandRentalDto bordto = (BookandRentalDto)renlist.get(j);
+				
+				
+				System.out.println("대여한 책:"+bordto.getBook_title());
+				String book_title = bordto.getBook_title();
+				
+				if(dto.getBook_title().equals(bordto.getBook_title())){
+					disbook = 1;
+					mav.addObject("disbook",  disbook);
+					return mav;
+				}
+				else{
+					disbook = 0;
+				}
+				System.out.println("대여가능한가:"+disbook);
+				mav.addObject("disbook",  disbook);
+			}
+		}
+		//예약 중복처리
+		int resbook = 0;
+		for(int i=0; i<list.size(); i++){
+			for(int j=0; j<reslist.size(); j++){
+				dto = (BookDto)list.get(i);
+			
+				System.out.println("예약할 책:"+dto.getBook_title());
+				String inputbook = dto.getBook_title();
+				BookandRentalDto bordto = (BookandRentalDto)reslist.get(j);
+				
+				
+				System.out.println("대여한 책:"+bordto.getBook_title());
+				String book_title = bordto.getBook_title();
+				
+				if(dto.getBook_title().equals(bordto.getBook_title())){
+					resbook = 1;
+					mav.addObject("resbook",  resbook);
+					return mav;
+				}
+				else{
+					resbook = 0;
+				}
+				System.out.println("대여가능한가:"+resbook);
+				mav.addObject("resbook",  resbook);
+			}
+		}
+		
+		return mav;
 	}
-
 }

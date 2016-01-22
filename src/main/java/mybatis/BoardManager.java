@@ -10,6 +10,7 @@ import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.session.SqlSessionFactoryBuilder;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.hta.board.repository.BoardDto;
 
@@ -92,6 +93,9 @@ public class BoardManager {
 		SqlSession session = sqlFactory.openSession();
 		session.update("increasecount", dto);
 		session.commit();
+		
+	}
+	public static void writeFile(MultipartFile file, String path, String filename){
 		
 	}
 }

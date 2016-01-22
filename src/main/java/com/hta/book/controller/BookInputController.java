@@ -21,7 +21,7 @@ public class BookInputController {
 		this.bookService = bookService;
 	}
 
-	//book ÀúÀåÆäÀÌÁö
+	//book ì €ì¥í˜ì´ì§€
 	@RequestMapping(value="/bookinput", method=RequestMethod.GET)
 	public String bookinhandle(){
 		
@@ -29,7 +29,7 @@ public class BookInputController {
 		
 	}
 	
-	//book ÀúÀå
+	//book ì €ì¥
 	@RequestMapping(value="/bookinput", method=RequestMethod.POST)
 	public String booksubmit(@ModelAttribute BookDto dto) {
 		try {
@@ -41,11 +41,11 @@ public class BookInputController {
 			
 		}
 		
-		return "redirect:bookinput";//Ã¥ Ãß°¡ ÇÒ°Ô ¸¹À» °æ¿ì ´ëºñÇØ¼­ ´Ù½Ã ¸®¼Â µÈ´Ù.
+		return "redirect:bookinput";//ì±… ì¶”ê°€ í• ê²Œ ë§ì„ ê²½ìš° ëŒ€ë¹„í•´ì„œ ë‹¤ì‹œ ë¦¬ì…‹ ëœë‹¤.
 		
 	}
 	
-	//ÀüÃ¼ ¸ñ·Ï º¸¿©ÁÖ±â 
+	//ì „ì²´ ëª©ë¡ ë³´ì—¬ì£¼ê¸° 
 	@RequestMapping("/success.book")
 	public ModelAndView pageHandler(){
 		ModelAndView mav = new ModelAndView("successbook");
@@ -62,7 +62,7 @@ public class BookInputController {
 		
 	}
 	
-	//¿À´Ã µî·ÏÇÑ Ã¥ ¸ñ·Ï º¸¿©ÁÖ±â
+	//ì˜¤ëŠ˜ ë“±ë¡í•œ ì±… ëª©ë¡ ë³´ì—¬ì£¼ê¸°
 	@RequestMapping("/today.book")
 	public ModelAndView pageHandler1(){
 		ModelAndView mav = new ModelAndView("todaybook");

@@ -14,11 +14,11 @@ Modernizr.load({
 
 
 
-   <div class="orange_box">
+   <div class="orange_box" style="padding-left: 325px; padding-top: 10px">
       <!-- 이부분이 축하 메세지 부분 -->
-	<h2>${dto.member_name}<strong>님</strong>회원가입을 축하합니다.</h2>
-	<!--<p><a href="/chap02/index.jsp">메인 페이지로 이동</a></p> -->
-	<p><a href="index.jsp">메인 페이지로 이동</a></p> 
+   <h2>${dto.member_name}<strong>님</strong>회원가입을 축하합니다.</h2>
+   <!--<p><a href="/chap02/index.jsp">메인 페이지로 이동</a></p> -->
+   <p><a href="index.jsp">메인 페이지로 이동</a></p> 
 
       
       

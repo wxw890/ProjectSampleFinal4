@@ -28,16 +28,15 @@ public class RentalBookController {
 	}
 	
 	@RequestMapping("/rental.book")
-	public  ModelAndView rentalhandle(@ModelAttribute RentalInfoDto infodto, BookDto dto, BookandRentalDto joindto, HttpSession session, HttpServletRequest req){
+	public  ModelAndView rentalhandle(@ModelAttribute RentalInfoDto infodto, BookDto dto,int book_num, BookandRentalDto joindto, HttpSession session, HttpServletRequest req){
 		ModelAndView mav = new ModelAndView("redirect:myrental.book");
-		String booknum = req.getParameter("book_num");
-		int book_num = Integer.parseInt(booknum);
+		String book_title = req.getParameter("book_title");
 		System.out.println("rentalcontroller:"+book_num);
 		String member_email = (String)session.getAttribute("email");
-		session.setAttribute("member_email", member_email); //sessionø° ¿Ã∏ﬁ¿œ∞™ ¿˙¿Â.
+		session.setAttribute("member_email", member_email); //sessionÏóê Ïù¥Î©îÏùºÍ∞í Ï†ÄÏû•.
 		infodto.setMember_email(member_email);
 		infodto.setBook_num(book_num);
-		bookService.bookrental(dto, infodto);
+		bookService.bookrental(dto, infodto,book_num);
 
 		
 		return mav;
@@ -45,15 +44,19 @@ public class RentalBookController {
 		
 	}
 	
+	
+	
+	
 	@RequestMapping("/myrental.book")
 	public ModelAndView mylist(@ModelAttribute BookandRentalDto joindto, HttpSession session, HttpServletRequest req){
 		ModelAndView mav = new ModelAndView("myrental");
 		String member_email = (String)session.getAttribute("email");
-		session.setAttribute("member_email", member_email); //sessionø° ¿Ã∏ﬁ¿œ∞™ ¿˙¿Â.
+		session.setAttribute("member_email", member_email); //sessionÏóê Ïù¥Î©îÏùºÍ∞í Ï†ÄÏû•.
 		joindto.setMember_email(member_email);
 		
 		List list = bookService.mylist(joindto);
 		List lists = bookService.myreslist(joindto);
+		
 		mav.addObject("list", list);
 		mav.addObject("lists", lists);
 		

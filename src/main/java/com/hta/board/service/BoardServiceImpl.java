@@ -1,5 +1,6 @@
 package com.hta.board.service;
 
+import java.io.IOException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -10,6 +11,7 @@ import org.springframework.jdbc.core.JdbcTemplate; //jdbcTemplate을 import하�
 													 
 import org.springframework.jdbc.core.PreparedStatementSetter;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.hta.board.repository.BoardDto;
 
@@ -165,5 +167,10 @@ public class BoardServiceImpl implements BoardService {
 		return BoardManager.findKeyword(dto);
 	}
 	
+	public void writeFile(MultipartFile file, String path, String filename) throws IOException{
+		
+		BoardManager.writeFile(file, path, filename);
+		
+	}
 
 }
